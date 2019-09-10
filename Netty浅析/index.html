@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="版本历史    版本 作者 日期 描述    V1.0 Chopin 2019/9/5 完成文档   V0.1 Chopin 2019/9/2 完成文档草稿   参考资料    资料名称 来源    《Netty实战》 图书   《Netty权威指南》 图书   Netty官网wiki https://netty.io/wiki/related-articles.html   其他互联网资料链接">
+<meta name="description" content="简介Netty是一款异步的事件驱动的网络应用程序框架，支持快速地开发可维护的高性能的面向协议的服务器和客户端。它提供了对TCP、UDP和文件传输的支持，作为一个异步NIO框架，Netty的所有IO操作都是异步非阻塞的，通过Future-Listener机制，用户可以方便的主动获取或者通过通知机制获得IO操作结果。">
 <meta name="keywords" content="Netty">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Netty浅析">
 <meta property="og:url" content="http://chopin1994.github.io/Netty浅析/index.html">
 <meta property="og:site_name" content="Chopin还不会弹吉他">
-<meta property="og:description" content="版本历史    版本 作者 日期 描述    V1.0 Chopin 2019/9/5 完成文档   V0.1 Chopin 2019/9/2 完成文档草稿   参考资料    资料名称 来源    《Netty实战》 图书   《Netty权威指南》 图书   Netty官网wiki https://netty.io/wiki/related-articles.html   其他互联网资料链接">
+<meta property="og:description" content="简介Netty是一款异步的事件驱动的网络应用程序框架，支持快速地开发可维护的高性能的面向协议的服务器和客户端。它提供了对TCP、UDP和文件传输的支持，作为一个异步NIO框架，Netty的所有IO操作都是异步非阻塞的，通过Future-Listener机制，用户可以方便的主动获取或者通过通知机制获得IO操作结果。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://chopin1994.github.io/png/netty/netty.png">
 <meta property="og:image" content="http://chopin1994.github.io/png/netty/reactor%E6%A8%A1%E5%BC%8F.png">
@@ -101,10 +101,10 @@
 <meta property="og:image" content="http://chopin1994.github.io/png/netty/clear%E5%90%8E%E7%9A%84Buffer.png">
 <meta property="og:image" content="http://chopin1994.github.io/png/netty/%E6%B5%81-%E6%8B%86%E5%8C%85.png">
 <meta property="og:image" content="http://chopin1994.github.io/png/netty/%E6%B5%81-%E7%B2%98%E5%8C%85.png">
-<meta property="og:updated_time" content="2019-09-05T17:46:44.378Z">
+<meta property="og:updated_time" content="2019-09-10T16:49:02.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Netty浅析">
-<meta name="twitter:description" content="版本历史    版本 作者 日期 描述    V1.0 Chopin 2019/9/5 完成文档   V0.1 Chopin 2019/9/2 完成文档草稿   参考资料    资料名称 来源    《Netty实战》 图书   《Netty权威指南》 图书   Netty官网wiki https://netty.io/wiki/related-articles.html   其他互联网资料链接">
+<meta name="twitter:description" content="简介Netty是一款异步的事件驱动的网络应用程序框架，支持快速地开发可维护的高性能的面向协议的服务器和客户端。它提供了对TCP、UDP和文件传输的支持，作为一个异步NIO框架，Netty的所有IO操作都是异步非阻塞的，通过Future-Listener机制，用户可以方便的主动获取或者通过通知机制获得IO操作结果。">
 <meta name="twitter:image" content="http://chopin1994.github.io/png/netty/netty.png">
 
 
@@ -325,55 +325,9 @@
       
 
       
-        <p><strong>版本历史</strong></p>
-<table>
-<thead>
-<tr>
-<th>版本</th>
-<th>作者</th>
-<th>日期</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>V1.0</td>
-<td>Chopin</td>
-<td>2019/9/5</td>
-<td>完成文档</td>
-</tr>
-<tr>
-<td>V0.1</td>
-<td>Chopin</td>
-<td>2019/9/2</td>
-<td>完成文档草稿</td>
-</tr>
-</tbody></table>
-<p><strong>参考资料</strong></p>
-<table>
-<thead>
-<tr>
-<th>资料名称</th>
-<th>来源</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>《Netty实战》</td>
-<td>图书</td>
-</tr>
-<tr>
-<td>《Netty权威指南》</td>
-<td>图书</td>
-</tr>
-<tr>
-<td>Netty官网wiki</td>
-<td><a href="https://netty.io/wiki/related-articles.html" target="_blank" rel="noopener">https://netty.io/wiki/related-articles.html</a></td>
-</tr>
-<tr>
-<td>其他互联网资料链接</td>
-<td>见最后</td>
-</tr>
-</tbody></table>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Netty是一款异步的事件驱动的网络应用程序框架，支持快速地开发可维护的高性能的面向协议的服务器和客户端。它提供了对TCP、UDP和文件传输的支持，作为一个异步NIO框架，Netty的所有IO操作都是异步非阻塞的，通过Future-Listener机制，用户可以方便的主动获取或者通过通知机制获得IO操作结果。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Netty是一款异步的事件驱动的网络应用程序框架，支持快速地开发可维护的高性能的面向协议的服务器和客户端。它提供了对TCP、UDP和文件传输的支持，作为一个异步NIO框架，Netty的所有IO操作都是异步非阻塞的，通过Future-Listener机制，用户可以方便的主动获取或者通过通知机制获得IO操作结果。</p>
+<a id="more"></a>
+
 <p><img src="/png/netty/netty.png" alt></p>
 <p>为什么用Netty不用NIO</p>
 <ol>
@@ -627,6 +581,31 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * maxFrameLength：解码的帧的最大长度</span></span><br><span class="line"><span class="comment"> * lengthFieldOffset：长度属性的起始位（偏移位），包中存放有整个大数据包长度的字节，这段字节的其实位置</span></span><br><span class="line"><span class="comment"> * lengthFieldLength：长度属性的长度，即存放整个大数据包长度的字节所占的长度</span></span><br><span class="line"><span class="comment"> * lengthAdjustmen：长度调节值，在总长被定义为包含包头长度时，修正信息长度。</span></span><br><span class="line"><span class="comment"> * initialBytesToStrip：跳过的字节数，根据需要我们跳过lengthFieldLength个字节，以便接收端直接接受到不</span></span><br><span class="line"><span class="comment">                        含“长度属性”的内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">ch.pipeline().addLast(<span class="string">"decoder"</span>, <span class="keyword">new</span> LengthFieldBasedFrameDecoder(MAX_FRAME_LENGTH, LENGTH_OFFSET, </span><br><span class="line">                                    LENGTH_LEN, LENGTH_ADJUGEMENT, INIT_BYTE_TO_STRIP));</span><br></pre></td></tr></table></figure>
 
+<p><strong>参考资料</strong></p>
+<table>
+<thead>
+<tr>
+<th>资料名称</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>《Netty实战》</td>
+<td>图书</td>
+</tr>
+<tr>
+<td>《Netty权威指南》</td>
+<td>图书</td>
+</tr>
+<tr>
+<td>Netty官网wiki</td>
+<td><a href="https://netty.io/wiki/related-articles.html" target="_blank" rel="noopener">https://netty.io/wiki/related-articles.html</a></td>
+</tr>
+<tr>
+<td>其他互联网资料链接</td>
+<td>见最后</td>
+</tr>
+</tbody></table>
 <p><strong>参考链接：</strong></p>
 <p><a href="https://netty.io/index.html" target="_blank" rel="noopener">https://netty.io/index.html</a><br><a href="https://blog.csdn.net/syc001/article/details/72841945" target="_blank" rel="noopener">https://blog.csdn.net/syc001/article/details/72841945</a><br><a href="http://ifeve.com/%E8%B0%88%E8%B0%88netty%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" target="_blank" rel="noopener">http://ifeve.com/%E8%B0%88%E8%B0%88netty%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/</a><br><a href="https://www.cnblogs.com/wxd0108/p/6681627.html" target="_blank" rel="noopener">https://www.cnblogs.com/wxd0108/p/6681627.html</a><br><a href="https://my.oschina.net/plucury/blog/192577" target="_blank" rel="noopener">https://my.oschina.net/plucury/blog/192577</a><br><a href="https://blog.csdn.net/chenssy/article/details/78714003" target="_blank" rel="noopener">https://blog.csdn.net/chenssy/article/details/78714003</a></p>
 
@@ -655,6 +634,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/DirectBuffer垃圾回收/" rel="prev" title="DirectBuffer垃圾回收">
+                DirectBuffer垃圾回收 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -728,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +736,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
