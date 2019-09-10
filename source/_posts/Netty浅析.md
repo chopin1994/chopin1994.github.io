@@ -6,26 +6,11 @@ tags:   #标签
     - Netty
 ---
 
-
-**版本历史**
-
-| 版本 | 作者   | 日期     | 描述         |
-| ---- | ------ | -------- | ------------ |
-| V1.0 | Chopin | 2019/9/5 | 完成文档     |
-| V0.1 | Chopin | 2019/9/2 | 完成文档草稿 |
-
-**参考资料**
-
-| 资料名称           | 来源                                        |
-| ------------------ | ------------------------------------------- |
-| 《Netty实战》      | 图书                                        |
-| 《Netty权威指南》  | 图书                                        |
-| Netty官网wiki      | https://netty.io/wiki/related-articles.html |
-| 其他互联网资料链接 | 见最后                                      |
-
 ##  简介
 
 Netty是一款异步的事件驱动的网络应用程序框架，支持快速地开发可维护的高性能的面向协议的服务器和客户端。它提供了对TCP、UDP和文件传输的支持，作为一个异步NIO框架，Netty的所有IO操作都是异步非阻塞的，通过Future-Listener机制，用户可以方便的主动获取或者通过通知机制获得IO操作结果。
+
+<!-- more -->
 
 ![](/png/netty/netty.png)
 
@@ -870,6 +855,14 @@ ch.pipeline().addLast("decoder", new LengthFieldBasedFrameDecoder(MAX_FRAME_LENG
 
 ```
 
+**参考资料**
+
+| 资料名称           | 来源                                        |
+| ------------------ | ------------------------------------------- |
+| 《Netty实战》      | 图书                                        |
+| 《Netty权威指南》  | 图书                                        |
+| Netty官网wiki      | https://netty.io/wiki/related-articles.html |
+| 其他互联网资料链接 | 见最后                                      |
 
 
 **参考链接：**
